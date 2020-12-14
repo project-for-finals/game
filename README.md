@@ -1,1 +1,3 @@
-# website
+# Creators
+# Nurak Karabekov
+# Bakbergen Beishenaliev
