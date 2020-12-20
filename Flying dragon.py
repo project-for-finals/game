@@ -38,8 +38,11 @@ def score(count):
 
 
 def blocks(x_block, y_block, block_width, block_height, gap, colorChoice):
-    pygame.draw.rect(surface, colorChoice, [x_block, y_block, block_width, block_height])
-    pygame.draw.rect(surface, colorChoice, [x_block, y_block + block_height + gap, block_width, surfaceHeight])
+    pygame.draw.rect(surface, colorChoice,
+                     [x_block, y_block, block_width, block_height])
+    pygame.draw.rect(surface, colorChoice,
+                     [x_block, y_block + block_height + gap,
+                      block_width, surfaceHeight])
 
 
 def replay_or_quit():
@@ -69,14 +72,17 @@ def msgSurface(text):
     titleTextRect.center = surfaceWidth / 2, surfaceHeight / 2
     surface.blit(titleTextSurf, titleTextRect)
 
-    typTextSurf, typTextRect = makeTextObjs('Press any key to continue', smallText)
+    typTextSurf, typTextRect = makeTextObjs('Press any key to continue',
+                                            smallText)
     typTextRect.center = surfaceWidth / 2, ((surfaceHeight / 2) + 100)
     surface.blit(typTextSurf, typTextRect)
 
     pygame.display.update()
     time.sleep(1)
 
-    while replay_or_quit() == None:
+    while True:
+        if replay_or_quit() is None:
+            break
         clock.tick()
 
     main()
@@ -124,7 +130,6 @@ def main():
 
         y += y_move
 
-        #surface.fill((255,255,255))
         surface.blit(background, [0, 0])
         helicopter(x, y, img)
 
@@ -157,13 +162,10 @@ def main():
 
         if 3 <= current_score < 5:
             block_move = 5
-            #gap = imageHeight * 2.9
         if 5 <= current_score < 8:
             block_move = 6
-            #gap = imageHeight * 2.8
         if 8 <= current_score < 14:
             block_move = 7
-            #gap = gap * 2.7
 
         pygame.display.update()
         clock.tick(60)
