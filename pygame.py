@@ -27,7 +27,7 @@ surface = pygame.display.set_mode((surfaceWidth, surfaceHeight))
 pygame.display.set_caption('Flying dragon')
 clock = pygame.time.Clock()
 
-img = pygame.image.load('drag2_up.png')
+img = pygame.image.load('dragon.png')
 background = pygame.image.load('back2.jpg')
 
 
@@ -154,6 +154,7 @@ def main():
 
         # if x_block < (x - block_width) < x_block + block_move:
         #    current_score += 1
+
         if 3 <= current_score < 5:
             block_move = 5
             #gap = imageHeight * 2.9
